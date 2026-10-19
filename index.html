@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0b1326">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="FC27 Scout">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="styles.css">
+<title>FC 27 Career Scout</title>
+</head>
+<body>
+<header class="topbar">
+  <div class="brandmark">FC<span>27</span></div>
+  <div><h1>Career Scout</h1><p>PLAYER DATABASE</p></div>
+  <button class="iconbtn" id="savedToggle" aria-label="Ver favoritos">☆</button>
+</header>
+<main>
+  <section class="hero">
+    <div class="eyebrow">SCOUTING CENTER <span class="live-dot"></span></div>
+    <h2>Encuentra tu<br><em>próxima promesa.</em></h2>
+    <p>Filtra, descubre y compara jugadores para tu modo carrera.</p>
+  </section>
+
+  <section class="toolbar">
+    <div><span class="muted">RESULTADOS</span><strong id="count">8</strong></div>
+    <select id="sort" aria-label="Ordenar jugadores">
+      <option value="overall">OVR ↓</option><option value="potential">POT ↓</option>
+      <option value="age">Edad ↑</option><option value="value">Valor ↑</option>
+    </select>
+  </section>
+
+  <details class="filters" open>
+    <summary><span>Filtros de búsqueda</span><span class="filterbadge" id="filterBadge">0 activos</span></summary>
+    <div class="filtergrid">
+      <label>Buscar jugador<input id="search" placeholder="Nombre, club o país"></label>
+      <label>Posición<select id="position"><option value="">Todas</option><option>ST</option><option>LW</option><option>RW</option><option>CAM</option><option>CM</option><option>CDM</option><option>CB</option><option>LB</option><option>RB</option><option>GK</option></select></label>
+      <label>Edad máxima <output id="ageOut">23</output><input id="age" type="range" min="16" max="40" value="23"></label>
+      <label>Media mínima <output id="ovrOut">60</output><input id="ovr" type="range" min="40" max="95" value="60"></label>
+      <label>Potencial mínimo <output id="potOut">80</output><input id="pot" type="range" min="40" max="99" value="80"></label>
+      <label>Nacionalidad<input id="nation" placeholder="Ej. Argentina, España"></label>
+      <label>Club / liga<input id="club" placeholder="Club o liga"></label>
+      <label>PlayStyle<select id="style"><option value="">Cualquiera</option><option>Rapid</option><option>Quick Step</option><option>Finesse Shot</option><option>Anticipate</option><option>Incisive Pass</option></select></label>
+    </div>
+    <div class="filteractions"><button class="secondary" id="reset">Limpiar filtros</button><button class="primary" id="apply">Aplicar filtros ↗</button></div>
+  </details>
+
+  <div class="sectiontitle"><h3 id="listTitle">Jugadores destacados</h3><span class="muted">DEMO VISUAL</span></div>
+  <div id="players" class="players"></div>
+  <p class="notice"><b>Importante:</b> esta primera versión es un prototipo visual. Los jugadores de ejemplo sirven para probar el diseño; aún no están conectados a la base oficial de FC 27. No uses estos datos como estadísticas verificadas.</p>
+</main>
+<nav class="bottomnav"><button class="active">⌕<span>Buscar</span></button><button id="compareNav">⇄<span>Comparar <i id="compareCount">0</i></span></button><button id="favNav">☆<span>Favoritos</span></button></nav>
+<div class="toast" id="toast" role="status"></div>
+<script src="app.js"></script>
+</body>
+</html>
